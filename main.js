@@ -3,7 +3,7 @@ var messages = ["Keep it up!", "You got this!", "You're working so hard!", "I ap
 "Hang in there!", "I like how your mind works.","You're doing great!","Make sure you drink some water!","Go get it!",
 "You look nice today!","Happy thoughts!"];  
 var background = document.querySelector('body');
-var isVisible = true;
+var isVisible = false;
 
 window.onload = function() { //Call the function to change the message.
    console.log("LOAD");
@@ -32,9 +32,7 @@ function openURL(url) {
 
 var close = document.getElementById('close');
 close.onclick = function() {
-   var aboutDiv = document.getElementById('About');
-   aboutDiv.style.display = 'none';
-   count++;
+    ToggleAbout();
 }
 
 function getRandomColor() {
@@ -52,14 +50,12 @@ function GetRandomNumber() { //Gets a random number.
 
 function ToggleAbout() {
    var aboutDiv = document.getElementById('About');
-
-   if(window.innerWidth < 700) {
-       aboutDiv.style.width = window.innerWidth + 'px';
-   }
-   else {
-       aboutDiv.style.width = '33%';
-   }
    isVisible = !isVisible;
-   console.log("TIHPF");
-   isVisible ? aboutDiv.style.display = 'initial' : aboutDiv.style.display = 'none';
+   if(isVisible) {
+       aboutDiv.classList.remove('d-initial');
+       aboutDiv.classList.add('d-none');
+   } else {
+    aboutDiv.classList.remove('d-none');
+    aboutDiv.classList.add('d-initial');
+   }
 }
