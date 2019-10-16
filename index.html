@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Positivity!</title>
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+<script data-ad-client="ca-pub-1641258756419323" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<style>
+
+    *{
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;
+    }
+
+    body{
+        background-color: #D2FFE9;
+    }
+
+    div{
+        text-align: center;
+    }
+    p{
+        font-family: 'Pacifico',cursive;
+    }
+    #footer{
+        bottom:0;
+        position: fixed;
+        left:0;
+        right:0;
+    }
+    #smile{
+        top:40%;
+        position:fixed;
+        margin-left: -150px;
+        margin-top:-150px;
+    }
+
+    #message{
+        text-align: center;
+        position: fixed;
+        top:60%;
+        left:0;
+        right:0;
+        font-size: 30pt;
+    }
+    #footer h3{
+        text-align: center;
+        position: fixed;
+        font-family: 'Pacifico',cursive;
+        width:100%;
+        bottom:3%;
+        font-size: 15px;
+        text-decoration: underline;
+    }
+    #footer h3:hover{
+        cursor: pointer;
+    }
+
+    #web:hover{
+        cursor: pointer;
+    }
+
+    div#About{
+        display: none;
+        position:fixed;
+        top:35%;
+        left:33%;
+        background-color: rgba(255,255,255,.95);
+        height:30%;
+        width:30%;
+    }
+    #About h1{
+        font-family: 'Pacifico',cursive;
+    }
+    #About p{
+        font-family: 'Slabo 27px', serif;
+        line-height: 30px;
+        padding:0 10px;
+    }
+
+    #close{
+    color:black;
+    float: right;
+    font-size: 50px;
+    line-height: 20px;
+    padding:0;
+    margin:0;
+    transition: all 0.4s;
+    }
+
+    #close:hover{
+    color:gray;
+    cursor: pointer;
+    }
+
+    @media screen and (max-width: 700px) {
+        #message{
+            text-align: center;
+            position: fixed;
+            top:50%;
+            left:0;
+            right:0;
+            font-size: 30pt;
+        }
+        #smile{
+            top:30%;
+        }
+         #footer h3{
+             font-size: 15pt;
+         }
+         div#About{
+             left:0;
+             height:auto;
+             z-index: 2;
+         }
+        #About h1{
+            left:0%;
+            font-size: 100px;
+            height:auto;
+        }
+        #About p{
+            font-size: 25px;
+            margin: 0 4px 15px 4px;
+        }
+        #About h1{
+            font-size: 30px;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <div id="content">
+        <img src="SmileyFace.png" alt="SmileyFace.png" width="300" id="smile">
+        <p id="message">Keep it up!</p>
+    </div>
+
+    <div id="About">
+        <span id="close">&times;</span>
+        <h1>What is Positivity?</h1>
+        <p>Positivity! is a homepage that brings a little joy to your day!
+            Our world is filled with bad news and discouragement, and it's my hope that
+            even something as small as a positive message and keep you going!
+        </p>
+    </div>
+
+
+    <div id="footer">
+         <h3 id='about' onclick="ToggleAbout()">About</h3>
+        <p onclick="openURL('http://jurikiin.com')" id="web">&copy; Juri Kiin 2017</p>
+    </div>
+
+</body>
+
+<script> // Script for generating a new positive message onload.
+
+    //Create array for messages.
+    var messages = ["Keep it up!", "You got this!", "You're working so hard!", "I appreciate you!","Proud of you!",
+     "Hang in there!", "I like how your mind works.","You're doing great!","Make sure you drink some water!","Go get it!",
+     "You look nice today!","Happy thoughts!"];  
+    var background = document.querySelector('body');
+    var count = 0;
+
+    window.onload = function()//Call the function to change the message.
+    {
+        var messageNumber = GetRandomNumber();  //Get a random number between 0 and the length of the message array.
+        var messageLine = document.getElementById("message");   //Find the element with the correct id.
+        messageLine.innerText = messages[messageNumber];    //Set the text of that paragraph element.
+        background.style.backgroundColor = getRandomColor();
+        var image = document.getElementById("smile");
+        image.style.color = 'black';
+
+    };  
+
+    window.addEventListener(onresize,setImageWidth);
+
+    function setImageWidth()
+    {
+        if(window.innerWidth < 700)
+        {
+            var smileImage = document.querySelector('#smile');
+            smileImage.style.width = window.innerWidth-200;
+        }
+    }
+
+    function openURL(url)
+    {
+        window.open(url,'_self');
+    }
+
+    var close = document.getElementById('close');
+    close.onclick = function()
+    {
+        var aboutDiv = document.getElementById('About');
+        aboutDiv.style.display = 'none';
+        count++;
+    }
+
+    function getRandomColor()
+    {
+        var red = Math.round(Math.random()*254+1);
+        var green = Math.round(Math.random()*254+1);
+        var blue=Math.round(Math.random()*254+1);
+        var color='rgba('+red+','+green+','+blue+',0.50)'; // 0.50 alpha
+
+        return color;
+    }
+
+    function GetRandomNumber()  //Gets a random number.
+    {
+        return Math.floor(Math.random() * (messages.length));
+    }
+
+    function ToggleAbout()
+    {
+        var aboutDiv = document.getElementById('About');
+
+        if(window.innerWidth < 700)
+        {
+            aboutDiv.style.width = window.innerWidth + 'px';
+        }
+        else
+        {
+            aboutDiv.style.width = '33%';
+        }
+
+        if(count%2==0)
+        {
+            aboutDiv.style.display = 'initial';
+        }
+        else
+        {
+            aboutDiv.style.display = 'none';
+        }
+        count++;
+    }
+
+</script>
+</html>
