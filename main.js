@@ -1,7 +1,11 @@
 //Create array for messages.
 var messages = ["Keep it up!", "You got this!", "You're working so hard!", "I appreciate you!","Proud of you!",
-"Hang in there!", "I like how your mind works.","You're doing great!","Make sure you drink some water!","Go get it!",
-"You look nice today!","Happy thoughts!"];  
+   "Hang in there!", "I like how your mind works.","You're doing great!","Make sure you drink some water!","Go get it!",
+   "You look nice today!","Happy thoughts!", "Have you done something nice today?", "Who have you helped today?", 
+   "Sometimes you are the most important person", "Stay focused!", "Make sure to do something fun today!", "Try something new today.",
+   "You can accomplish anything.", "You have a great smile!", "I love you.", "Don't give up!", "You're almost there!",
+   "Turn that frown upside down!", "Be brave!"
+];  
 var background = document.querySelector('body');
 var isVisible = false;
 
