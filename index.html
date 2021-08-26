@@ -5,29 +5,34 @@
 <meta name="viewport" content="width=device-width">
 <title>Positivity!</title>
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
-<link rel="stylesheet" href="https://jurikiin.com/KiinStyles/css/kiinStyle.css">
-<script data-ad-client="ca-pub-1641258756419323" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="stylesheet" href="https://jurikiin.com/KiinStyle/css/kiinStyle.css">
+
+<style>
+    body {
+        font-family: Pacifico, sans-serif;
+    }
+</style>
 </head>
-<body class='body-clear'>
+<body>
 
-    <div id="content" class='align-center margin-top-5'>
+    <header id="content" class='align-center margin-top-5'>
         <img src="SmileyFace.png" alt="SmileyFace.png" width="200" id="smile">
-        <p id="message" class='font-lg' style='font-family: Pacifico, sans-serif;'></p>
-    </div>
+        <p id="message" class='font-lg'></p>
+    </header>
 
-    <div id="About" class='center bg-grass d-none'>
-        <span id="close" class='pad-5 font-md pointer'>&times;</span>
-        <h1 class='align-center font-header'>What is Positivity?</h1>
-        <p class='margin-left-5 margin-right-5 font-text'>Positivity! is a homepage that brings a little joy to your day!
+    <section id="About" class='center bg-snow d-none'>
+        <span id="close" class='pad-5 font-md pointer f-right' onclick="toggleAbout(false)">&times;</span>
+        <p class='margin-left-5 margin-right-5 margin-top-5 font-text font-md l-height-50'>
+            Positivity! is a site dedicated to brightening your day, and inspiring you to take on life.
             Our world is filled with bad news and discouragement, and it's my hope that
-            even something as small as a positive message and keep you going!
+            even something as small as a positive message can keep you going!
         </p>
-    </div>
-    <div id="footer" class='footer rock pad-10p font-text absolute bottom-0'>
-         <h3 id='about' onclick="ToggleAbout()" class='link'>About</h3>
-        <p onclick="openURL('jurikiin.com')" id="web" class='body-clear'>&copy; Juri Kiin 2017</p>
-    </div>
+    </section>
+
+    <footer id="footer" class='footer coal pad-10p absolute bottom-0'>
+         <h3 id='about' onclick="toggleAbout(true)" class='link-hover-subtle'>What is this?</h3>
+        <p class='pointer'><a class='link-clear coal' href="https://jurikiin.com">&copy; Juri Kiin 2021</a></p>
+    </footer>
 
 </body>
 <script src='main.js' type='text/javascript'></script>
